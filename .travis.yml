@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  -  docker build -t aurelius88/docker -f Dockerfile.dev .
+
+script:
+  - docker run aurelius88/docker npm run test -- --coverage
